@@ -12,6 +12,7 @@ package frc.robot;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+  public final Joystick driveStick;
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -39,4 +40,13 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+  public double getDriveX(){
+    return this.driveStick.getX();
+  }
+  public double getDriveY(){
+    return this.driveStick.getY();
+  }
+  public double getDriveZ(){
+    return this.driveStick.getZ();
+  }  
 }
