@@ -12,6 +12,52 @@ package frc.robot;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+  public final Joystick driveStick;
+    public final Joystick operatorStick;
+    private Button driveTrigger;
+    private Button driveSideButton;
+    public OI() {
+        this.driveStick = new Joystick(0);
+        this.operatorStick = new Joystick(1);
+        this.driveTrigger = new JoystickButton(driveStick, 1);
+        this.driveSideButton = new JoystickButton(driveStick, 2);
+    }
+    // Drive Stick
+    public double getDriveX() {
+        return this.driveStick.getX();
+    }
+    public double getDriveY() {
+        return this.driveStick.getY();
+    }
+    public double getDriveZ() {
+        return this.driveStick.getZ();
+    }
+    public double getDriveThrottle() {
+        return this.driveStick.getThrottle();
+    }
+    public boolean isDriveButtonDown(int buttonNumber) {
+        return this.driveStick.getRawButton(buttonNumber);
+    }
+    // Operator Stick
+    public double getOperatorX() {
+        return this.operatorStick.getX();
+    }
+    public double getOperatorY() {
+        return this.operatorStick.getY();
+    }
+    public double getOperatorZ() {
+        return this.operatorStick.getZ();
+    }
+    public double getOperatorThrottle() {
+        return this.operatorStick.getThrottle();
+    }
+    public boolean isOperatorButtonDown(int buttonNumber) {
+        return this.operatorStick.getRawButton(buttonNumber);
+    }
+    public int getOperatorPOV() {
+        return this.operatorStick.getPOV();
+    }
+
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
