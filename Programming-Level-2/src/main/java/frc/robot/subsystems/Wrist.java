@@ -19,7 +19,7 @@ public class Wrist extends Subsystem {
 
   public Wrist() {
     this.w = new WPI_TalonSRX(RobotMap.wristMotor);
-
+    
     
   }
 

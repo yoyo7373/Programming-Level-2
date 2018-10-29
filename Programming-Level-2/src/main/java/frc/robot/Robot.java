@@ -23,7 +23,9 @@ import frc.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
+  public static Hand hand = new Hand();
+  public static Wrist wrist = new Wrist();
+  
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -36,8 +38,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.addDefault("Default Auto", new ExampleCommand());
-    // chooser.addObject("My Auto", new MyAutoCommand());
+    m_chooser.addObject("Hand", new UseHand());
+    m_chooser.addObject("Wrist", new UseWrist());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
 

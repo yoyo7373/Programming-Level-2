@@ -11,8 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class UseHand extends Command {
   public UseHand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+    requires(hand);
   }
 
   // Called just before this Command runs the first time
@@ -40,5 +39,18 @@ public class UseHand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+
+  }
+
+  public void startEject() {
+    hand.startHandEjection();
+  }
+
+  public void startSuck() {
+    hand.startHandSuction();
+  }
+
+  public void stopHand() {
+    hand.stopHand();
   }
 }
