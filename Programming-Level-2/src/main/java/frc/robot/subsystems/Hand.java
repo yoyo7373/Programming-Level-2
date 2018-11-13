@@ -16,20 +16,21 @@ public class Hand extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public static final double MOTOR_SPEED = 0.25;
-
+  public final OI driveTrigger;
   public WPI_TalonSRX r1, l1;
   
   public Hand() {
     this.r1 = new WPI_TalonSRX(RobotMap.rightPickupMotor);
     this.l1 = new WPI_TalonSRX(RobotMap.leftPickupMotor);
+    this.driveTrigger = new OI();
   }
 
   public void startHandEjection() {
-
+    this.startHandDirection(1);
   }
 
   public void startHandSuction() {
-
+    this.startHandDirection(-1);
   }
 
   private void startHandDirection(int direction) {

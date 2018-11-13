@@ -12,8 +12,8 @@ package frc.robot;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  public final Joystick driveStick;
-    public final Joystick operatorStick;
+  public Joystick driveStick;
+    public Joystick operatorStick;
     private Button driveTrigger;
     private Button driveSideButton;
     public OI() {
@@ -38,6 +38,12 @@ public class OI {
     public boolean isDriveButtonDown(int buttonNumber) {
         return this.driveStick.getRawButton(buttonNumber);
     }
+    public boolean isHandsucButtonDown() {
+      return driveStick.getRawButton(1);
+    }
+    public boolean isHandejecDown(){
+      return driveStick.getRawButton(2);
+    }
     // Operator Stick
     public double getOperatorX() {
         return this.operatorStick.getX();
