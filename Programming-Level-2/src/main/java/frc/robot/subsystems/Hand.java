@@ -22,7 +22,6 @@ public class Hand extends Subsystem {
   public Hand() {
     this.r1 = new WPI_TalonSRX(RobotMap.rightPickupMotor);
     this.l1 = new WPI_TalonSRX(RobotMap.leftPickupMotor);
-    this.driveTrigger = new OI();
   }
 
   public void startHandEjection() {

@@ -12,20 +12,35 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * Add your docs here.
  */
-public class Wrist extends Subsystem {
+public class Hand extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public WPI_TalonSRX w;
+  public static final double MOTOR_SPEED = 0.25;
+  public final OI driveTrigger;
+  public WPI_TalonSRX r;
+  
+  public Hand() {
+    this.r = new WPI_TalonSRX(RobotMap.rightPickupMotor);
+  }
 
-  public Wrist() {
-    this.w = new WPI_TalonSRX(RobotMap.wristMotor);
-    
-    
+  public void closeWrist() {
+    this.startHandDirection(1);
+  }
+
+  public void openWrist() {
+    this.startHandDirection(-1);
+  }
+
+  private void startWristDirection(int direction) {
+    this.r.set(direction * MOTOR_SPEED);
+  }
+
+  public void stopWrist() {
+    this.r.set(0);
   }
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new UseHand());
   }
 }

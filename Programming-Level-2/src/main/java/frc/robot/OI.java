@@ -44,6 +44,12 @@ public class OI {
     public boolean isHandsucButtonDown() {
       return driveStick.getRawButton(1);
     }
+    public boolean isWristDownButtonDown(){
+      return driveStick.getRawButton(3);
+    }
+    public boolean isWristUpButtonDown(){
+      return driveStick.getRawButton(4);
+    }
     public boolean isHandejecDown(){
       return driveStick.getRawButton(2);
     }
