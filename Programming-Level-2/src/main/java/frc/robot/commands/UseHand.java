@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class UseHand extends Command {
   public final OI drivetrigger;
-  public Hand thehand;
+  public Hand hand;
   public UseHand() {
     requires(hand);
     this.drivetrigger = new OI();
@@ -35,6 +35,8 @@ public class UseHand extends Command {
     else{
       hand.StayStill();
     }
+
+
     if (drivetrigger.isHandsucButtonDown == true){
         hand.startHandSuction();
     }

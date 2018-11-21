@@ -20,14 +20,14 @@ public class Hand extends Subsystem {
   public WPI_TalonSRX r;
   
   public Hand() {
-    this.r = new WPI_TalonSRX(RobotMap.rightPickupMotor);
+    this.r = new WPI_TalonSRX(RobotMap.wristMotor);
   }
 
-  public void closeWrist() {
+  public void WristUp() {
     this.startHandDirection(1);
   }
 
-  public void openWrist() {
+  public void WristDown() {
     this.startHandDirection(-1);
   }
 
