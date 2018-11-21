@@ -18,10 +18,11 @@ public class Hand extends Subsystem {
   public static final double MOTOR_SPEED = 0.25;
   public final OI driveTrigger;
   public WPI_TalonSRX r1, l1;
-  
+  public DoubleSolenoid compresscontrol;
   public Hand() {
     this.r1 = new WPI_TalonSRX(RobotMap.rightPickupMotor);
     this.l1 = new WPI_TalonSRX(RobotMap.leftPickupMotor);
+    this.compresscontrol = new DoubleSolenoid(61, 0, 1);
   }
 
   public void startHandEjection() {
@@ -31,7 +32,15 @@ public class Hand extends Subsystem {
   public void startHandSuction() {
     this.startHandDirection(-1);
   }
-
+  public void OpenUp(){
+    this.compresscontrol.set(kForward);
+  }
+  public void CloseUp(){
+    this.compresscontrol.set(kReverse);
+  }
+  public void StayStill(){
+    this.compresscontrol.set(kOff);
+  }
   private void startHandDirection(int direction) {
     this.r1.set(direction * MOTOR_SPEED);
     this.l1.set(direction * MOTOR_SPEED);

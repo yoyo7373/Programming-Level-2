@@ -26,6 +26,15 @@ public class UseHand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+     if (drivetrigger.isOpenHandDown == true){
+        hand.OpenUp();
+    }
+    else if (drivetrigger.isCloseHandDown == true){
+        hand.CloseUp();
+    }
+    else{
+      hand.StayStill();
+    }
     if (drivetrigger.isHandsucButtonDown == true){
         hand.startHandSuction();
     }

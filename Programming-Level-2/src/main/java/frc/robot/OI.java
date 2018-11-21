@@ -53,6 +53,12 @@ public class OI {
     public boolean isHandejecDown(){
       return driveStick.getRawButton(2);
     }
+    public boolean isOpenHandDown(){
+      return driveStick.getRawButton(5);
+    }
+    public boolean isCloseHandDown(){
+      return driveStick.getRawButton(6);
+    }
     // Operator Stick
     public double getOperatorX() {
         return this.operatorStick.getX();
